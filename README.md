@@ -1,6 +1,15 @@
 # 1) สร้าง interfaces + msg
-ros2 pkg create school_interfaces --build-type ament_cmake
+mkdir -p ~/interfaces/src
+ros2 pkg create com_interfaces --build-type ament_cmake
+
 # ...วาง Move.msg, แก้ package.xml/CMakeLists.txt...
+cd ~/interfaces/src/com_interfaces
+mkdir msg
+cd msg
+touch Num.msg
+nano Num.msg
+วาง   int64 num
+
 colcon build --packages-select school_interfaces
 source install/setup.bash
 ros2 interface show school_interfaces/msg/Move
